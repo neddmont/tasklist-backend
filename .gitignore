@@ -1,4 +1,4 @@
-.fastapivenv/
+fastapivenv/
 __pycache__/
 *.pyc
 .env
