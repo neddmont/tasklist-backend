@@ -1,7 +1,17 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from routes import auth, tasks
 
 app = FastAPI()
 app.include_router(tasks.router)
 app.include_router(auth.router)
+
+# Разрешаем всё (для разработки)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
